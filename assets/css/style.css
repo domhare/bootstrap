@@ -25,7 +25,8 @@
 }
 
 html { scroll-behavior: smooth; }
-body { font-size: 18px; line-height: 27px; overflow-x: hidden; background: #fff; color: var(--text); }
+html { overflow-x: clip; }
+body { font-size: 18px; line-height: 27px; overflow-x: clip; background: #fff; color: var(--text); }
 h1, h2, h3, h4, h5, h6 { font-family: var(--font-head); font-weight: 800; color: var(--dark); }
 a { text-decoration: none; transition: color .3s; }
 img { max-width: 100%; height: auto; }
@@ -77,12 +78,35 @@ p { line-height: 1.5; }
 .main-menu .dropdown-menu { border: 0; border-radius: 10px; box-shadow: 0 10px 40px rgba(0, 0, 0, .1); padding: 15px 0; min-width: 220px; margin-top: 10px; }
 .main-menu .dropdown-item { font-size: 15px; color: var(--dark); padding: 7px 25px; transition: color .3s, padding .3s; background: none; }
 .main-menu .dropdown-item:hover, .main-menu .dropdown-item.active { color: var(--orange); background: none; padding-left: 30px; }
-.mega-menu { left: 40px !important; right: 40px; padding: 30px !important; }
-.mega-menu h6 { font-size: 16px; padding: 0 25px 8px; }
+/* invisible bridge so the menu doesn't close while the pointer crosses the gap */
+.main-menu .dropdown-menu::before { content: ""; position: absolute; left: 0; right: 0; top: -34px; height: 34px; }
+
+/* ---------- Mega menu (Key Features) ---------- */
+.main-menu .mega-menu { left: 35px; right: 35px; top: 100%; margin-top: 0; padding: 0; overflow: visible; background: #f5f8fa; border-radius: 12px; box-shadow: 0 0 20px rgba(0, 0, 0, .1); }
+.mega-menu > .mega-canvas { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 12px; z-index: 1; pointer-events: none; }
+.mega-watermark { position: absolute; left: 0; right: 0; top: 20%; z-index: 2; text-align: center; font-family: var(--font-head); font-weight: 900; font-size: clamp(200px, 17.5vw, 336px); line-height: .9; letter-spacing: -10px; color: #fff; pointer-events: none; user-select: none; overflow: hidden; }
+.mega-inner { position: relative; z-index: 7; max-width: 1170px; margin: 0 auto; padding: 0 15px; }
+.mega-heading { padding: 34px 0 15px; font-size: 14px; font-weight: 700; text-transform: uppercase; color: #656a72; border-bottom: 1px solid #e9edef; margin-bottom: 30px; }
+.mega-grid { padding-bottom: 30px; }
+.mega-grid > div { display: flex; flex-direction: column; gap: 30px; }
+.mega-item { display: flex; align-items: flex-start; gap: 0; padding-right: 4%; }
+.mega-item img { flex: none; margin: 2px 10px 0 0; transition: transform .3s; }
+.mega-item img.mi-40 { width: 40px; margin-right: 5px; }
+.mega-item img.mi-30 { width: 32px; }
+.mega-item strong { display: block; font-family: var(--font-head); font-weight: 700; font-size: 19px; line-height: 1.3; color: #3f4551; margin-bottom: 4px; transition: color .3s; }
+.mega-item strong + span { display: block; font-size: 16px; line-height: 1.5; color: #8b9097; }
+.mega-item:hover strong { color: var(--orange); }
+.mega-item:hover img { transform: scale(1.12); }
+.mega-footer { position: relative; z-index: 10; margin-top: 35px; margin-bottom: -2px; padding: 15px 0; border-radius: 0 0 12px 12px; background: #3f2091 url("../img/mega_footer_bg.webp") center / cover no-repeat; }
+.mega-footer img { width: 148px; height: auto; margin-right: 8px; }
+.mega-footer span { color: #c8c8f6; font-size: 16px; }
 @media (min-width: 1200px) {
+  .main-menu .mega-menu { animation: megaIn .3s ease; }
+  .main-menu .dropdown:hover > .nav-link { color: var(--orange); }
   .main-menu .dropdown:hover > .dropdown-menu { display: block; }
   .main-menu .dropdown-menu { animation: menuIn .25s ease; }
 }
+@keyframes megaIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: none; } }
 @keyframes menuIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 
 .header-actions { gap: 14px; margin-left: 20px; }

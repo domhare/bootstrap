@@ -179,6 +179,61 @@
     }
   }
 
+  /* ---------- Mega menu: drifting dots linked by lines (canvas) ---------- */
+  var mega = document.querySelector('.mega-menu');
+  var canvas = mega && mega.querySelector('.mega-canvas');
+  if (canvas && !reduceMotion) {
+    var ctx = canvas.getContext('2d');
+    var R = 7, LINK = 260, balls = [], raf = null, w = 0, h = 0;
+    var mouse = { x: 0, y: 0, mouse: true }, mouseIn = false;
+    function rnd(a, b) { return Math.random() * (b - a) + a; }
+    function ball() { return { x: rnd(0, w), y: rnd(0, h), vx: rnd(-.6, .6), vy: rnd(-.6, .6), phase: rnd(0, 10), a: 1 }; }
+    function size() {
+      var dpr = window.devicePixelRatio || 1;
+      w = mega.clientWidth; h = mega.clientHeight;
+      canvas.width = w * dpr; canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    function frame() {
+      ctx.clearRect(0, 0, w, h);
+      var all = mouseIn ? balls.concat([mouse]) : balls;
+      for (var i = 0; i < all.length; i++) {
+        for (var j = i + 1; j < all.length; j++) {
+          var dx = all[i].x - all[j].x, dy = all[i].y - all[j].y, f = Math.sqrt(dx * dx + dy * dy) / LINK;
+          if (f < 1) {
+            ctx.strokeStyle = 'rgba(208,213,216,' + (1 - f) + ')';
+            ctx.lineWidth = .8;
+            ctx.beginPath(); ctx.moveTo(all[i].x, all[i].y); ctx.lineTo(all[j].x, all[j].y); ctx.stroke();
+          }
+        }
+      }
+      balls.forEach(function (b) {
+        b.x += b.vx; b.y += b.vy; b.phase += .03; b.a = Math.abs(Math.cos(b.phase));
+        if (b.x < -R || b.x > w + R) b.vx *= -1;
+        if (b.y < -R || b.y > h + R) b.vy *= -1;
+        ctx.fillStyle = 'rgba(208,213,216,' + b.a + ')';
+        ctx.beginPath(); ctx.arc(b.x, b.y, R, 0, Math.PI * 2); ctx.fill();
+      });
+      raf = requestAnimationFrame(frame);
+    }
+    function start() {
+      if (raf) return;
+      size();
+      if (!balls.length) for (var k = 0; k < 20; k++) balls.push(ball());
+      raf = requestAnimationFrame(frame);
+    }
+    function stop() { cancelAnimationFrame(raf); raf = null; }
+    // Runs only while the mega menu is visible (hover on desktop, click elsewhere)
+    new MutationObserver(function () { mega.classList.contains('show') ? start() : null; }).observe(mega, { attributes: true, attributeFilter: ['class'] });
+    var megaLi = mega.parentElement;
+    megaLi.addEventListener('mouseenter', function () { requestAnimationFrame(function () { if (mega.offsetParent) start(); }); });
+    megaLi.addEventListener('mouseleave', function () { setTimeout(function () { if (!mega.offsetParent) stop(); }, 50); });
+    mega.addEventListener('mousemove', function (e) { var r = mega.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; mouseIn = true; });
+    mega.addEventListener('mouseleave', function () { mouseIn = false; });
+    megaLi.addEventListener('hidden.bs.dropdown', stop);
+    window.addEventListener('resize', function () { if (raf) size(); });
+  }
+
   var yr = document.getElementById('year');
   if (yr) yr.textContent = new Date().getFullYear();
 })();
