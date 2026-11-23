@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ewebot – Digital Marketing (Bootstrap rebuild)</title>
+  <meta name="description" content="Bootstrap 5 rebuild of the Ewebot Home 10 layout.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Nunito:wght@400;600;700;800&family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- Floating confetti dots (filled by JS) -->
+<div class="bubbles" aria-hidden="true"></div>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="siteHeader">
+  <nav class="navbar navbar-expand-xl">
+    <div class="container-fluid header-inner">
+      <a class="navbar-brand" href="#">
+        <img src="assets/img/logo_retinablack.png" alt="ewebot" width="150" height="48">
+      </a>
+
+      <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+        <ul class="navbar-nav main-menu">
+          <li class="nav-item dropdown">
+            <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Home</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Home 1</a></li>
+              <li><a class="dropdown-item" href="#">Home 2</a></li>
+              <li><a class="dropdown-item" href="#">Home 3</a></li>
+              <li><a class="dropdown-item" href="#">Home 5</a></li>
+              <li><a class="dropdown-item active" href="#">Home 10</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">About Us</a></li>
+              <li><a class="dropdown-item" href="#">Our Services</a></li>
+              <li><a class="dropdown-item" href="#">Our Team</a></li>
+              <li><a class="dropdown-item" href="#">Pricing</a></li>
+              <li><a class="dropdown-item" href="#">FAQ</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown position-static">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Mega Menu</a>
+            <div class="dropdown-menu mega-menu">
+              <div class="row g-4">
+                <div class="col-xl-3"><h6>Elements</h6><a class="dropdown-item" href="#">Buttons</a><a class="dropdown-item" href="#">Counters</a><a class="dropdown-item" href="#">Progress Bars</a><a class="dropdown-item" href="#">Testimonials</a></div>
+                <div class="col-xl-3"><h6>Layout</h6><a class="dropdown-item" href="#">Image Box</a><a class="dropdown-item" href="#">Icon Box</a><a class="dropdown-item" href="#">Tabs</a><a class="dropdown-item" href="#">Accordion</a></div>
+                <div class="col-xl-3"><h6>Content</h6><a class="dropdown-item" href="#">Blog Boxed</a><a class="dropdown-item" href="#">Portfolio Carousel</a><a class="dropdown-item" href="#">Typed Text</a><a class="dropdown-item" href="#">Price Table</a></div>
+                <div class="col-xl-3"><h6>Portfolio</h6><a class="dropdown-item" href="#">Grid</a><a class="dropdown-item" href="#">Masonry</a><a class="dropdown-item" href="#">Carousel</a><a class="dropdown-item" href="#">Single</a></div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Blog Standard</a></li>
+              <li><a class="dropdown-item" href="#">Blog Grid</a></li>
+              <li><a class="dropdown-item" href="#">Single Post</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Shop</a></li>
+              <li><a class="dropdown-item" href="#">Cart</a></li>
+              <li><a class="dropdown-item" href="#">Checkout</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#contacts">Contacts</a></li>
+        </ul>
+      </div>
+
+      <div class="header-actions d-flex align-items-center">
+        <button class="burger d-xl-none" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+        <a href="#contacts" class="btn btn-gradient btn-touch d-none d-md-inline-flex">Get in touch</a>
+        <button class="icon-btn" type="button" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Search"><i class="bi bi-search"></i></button>
+        <button class="icon-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidePanel" aria-controls="sidePanel" aria-label="Open info panel"><i class="bi bi-chevron-left"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile / tablet drop-down menu -->
+  <div class="collapse mobile-menu d-xl-none" id="mobileMenu">
+    <div class="mobile-menu-card">
+      <button class="mobile-close" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu" aria-label="Close menu"><i class="bi bi-x-lg"></i></button>
+      <ul class="list-unstyled m-0">
+        <li><a class="mm-link active" data-bs-toggle="collapse" href="#mm-home" role="button">Home <i class="bi bi-chevron-right"></i></a>
+          <div class="collapse mm-sub" id="mm-home"><a href="#">Home 1</a><a href="#">Home 2</a><a href="#">Home 3</a><a href="#" class="active">Home 10</a></div></li>
+        <li><a class="mm-link" data-bs-toggle="collapse" href="#mm-pages" role="button">Pages <i class="bi bi-chevron-right"></i></a>
+          <div class="collapse mm-sub" id="mm-pages"><a href="#">About Us</a><a href="#">Our Services</a><a href="#">Our Team</a><a href="#">Pricing</a></div></li>
+        <li><a class="mm-link" data-bs-toggle="collapse" href="#mm-mega" role="button">Mega Menu <i class="bi bi-chevron-right"></i></a>
+          <div class="collapse mm-sub" id="mm-mega"><a href="#">Elements</a><a href="#">Layout</a><a href="#">Content</a><a href="#">Portfolio</a></div></li>
+        <li><a class="mm-link" data-bs-toggle="collapse" href="#mm-blog" role="button">Blog <i class="bi bi-chevron-right"></i></a>
+          <div class="collapse mm-sub" id="mm-blog"><a href="#">Blog Standard</a><a href="#">Blog Grid</a><a href="#">Single Post</a></div></li>
+        <li><a class="mm-link" data-bs-toggle="collapse" href="#mm-shop" role="button">Shop <i class="bi bi-chevron-right"></i></a>
+          <div class="collapse mm-sub" id="mm-shop"><a href="#">Shop</a><a href="#">Cart</a><a href="#">Checkout</a></div></li>
+        <li><a class="mm-link" href="#contacts">Contacts</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 position-relative hero-media">
+        <img class="hero-girl" src="assets/img/smiling_girl.jpg" alt="Smiling woman holding a phone">
+        <img class="hero-float f1 reveal" data-anim="fadeInDown" src="assets/img/home10-img1.png" alt="">
+        <img class="hero-float f2 reveal" data-anim="zoomIn" src="assets/img/home10-img2.png" alt="">
+        <img class="hero-float f3 reveal" data-anim="fadeInLeft" src="assets/img/home10-img3.png" alt="">
+        <img class="hero-float f4 reveal" data-anim="fadeInUp" src="assets/img/home10-img4.png" alt="">
+        <img class="deco plus" style="top:8%;left:62%" src="assets/img/home_06_icon_22.png" alt="">
+        <img class="deco cross" style="top:52%;left:-8%" src="assets/img/home_06_icon_23.png" alt="">
+        <img class="deco tri" style="bottom:-10%;left:-6%" src="assets/img/triangle_orange.png" alt="">
+      </div>
+      <div class="col-lg-6 hero-content">
+        <h1 class="hero-title">
+          <span class="grad-text d-block">Digital</span>
+          <span class="grad-text d-block">Marketing</span>
+          <span class="grad-text d-block typed-wrap"><span class="typed" data-strings='["Success","Services","Business"]'></span><span class="typed-cursor">&nbsp;</span></span>
+        </h1>
+        <p class="hero-lead">Ensuring the best return on investment for your bespoke SEO campaign requirement.</p>
+
+        <form class="analyze-form" onsubmit="return false;">
+          <input type="url" class="form-control" placeholder="https://  yoursite.com" aria-label="Your website URL">
+          <button class="btn btn-dark-violet" type="submit">Analyze your site</button>
+        </form>
+
+        <a href="tel:8001234567" class="hero-contact">
+          <img src="assets/img/img_box_29_orange.png" alt="" width="30">
+          <span>
+            <span class="hc-phone">800-123-4567</span>
+            <span class="hc-mail">info@company.com</span>
+          </span>
+        </a>
+
+        <img class="deco tri" style="top:2%;right:6%" src="assets/img/triangle_blue.png" alt="">
+        <img class="deco ring" style="top:30%;right:-12%" src="assets/img/circle.png" alt="">
+        <img class="deco plus" style="top:55%;right:-2%" src="assets/img/home_06_icon_22.png" alt="">
+        <img class="deco cross" style="bottom:22%;right:-6%" src="assets/img/home_06_icon_23.png" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLIENT LOGOS ============ -->
+<section class="clients">
+  <div class="container">
+    <div class="row row-cols-2 row-cols-md-4 align-items-center text-center g-4">
+      <div class="col"><img src="assets/img/1.png" alt="Zazzle Media"></div>
+      <div class="col"><img src="assets/img/2.png" alt="AirTrack"></div>
+      <div class="col"><img src="assets/img/3.png" alt="SutraHR"></div>
+      <div class="col"><img src="assets/img/4.png" alt="Sylexcoin"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY CHOOSE US ============ -->
+<section class="why-us">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <div class="subtitle reveal" data-anim="slideUp">Why Choose us</div>
+        <h2 class="section-title reveal" data-anim="slideUp">Boosts Your Website Traffic!</h2>
+        <p class="why-text">We are passionate about our work. Our designers stay ahead of the curve to provide engaging and user-friendly website designs to make your business stand out. Our developers are committed to maintaining the highest web standards so that your site will withstand the test of time. We care about your business, which is why we work with you.</p>
+        <a href="#" class="btn btn-outline-violet">Discover more</a>
+      </div>
+      <div class="col-lg-6">
+        <div class="row g-4 feature-grid">
+          <div class="col-sm-6">
+            <a href="#" class="feature-card"><img src="assets/img/circle_orange.png" alt=""><h3>Discover, Explore the Product</h3></a>
+            <a href="#" class="feature-card"><img src="assets/img/circle_green.png" alt=""><h3>Product UX, Design &amp; Development</h3></a>
+          </div>
+          <div class="col-sm-6">
+            <a href="#" class="feature-card"><img src="assets/img/circle_blue.png" alt=""><h3>Art Direction &amp; Brand Strategy</h3></a>
+            <a href="#" class="feature-card"><img src="assets/img/circle_purple.png" alt=""><h3>Marketing Strategy &amp; SEO Campaigns</h3></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE / PROGRESS ============ -->
+<section class="experience">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 position-relative phones">
+        <img class="phones-bg reveal" data-anim="fadeIn" src="assets/img/home10-figure1.jpg" alt="">
+        <img class="phone p1 reveal" data-anim="fadeInLeft" src="assets/img/home10-phone1.png" alt="">
+        <img class="phone p2 reveal" data-anim="fadeInUp" src="assets/img/home10_phone2.png" alt="Mobile dashboard">
+        <img class="phone p3 reveal" data-anim="zoomIn" src="assets/img/home10_phone3.png" alt="">
+      </div>
+      <div class="col-lg-6">
+        <div class="subtitle reveal" data-anim="slideUp">experience</div>
+        <h2 class="section-title reveal" data-anim="slideUp">Pay for Qualified Traffic</h2>
+        <p class="exp-text">Ewebot stays ahead of the curve with digital marketing trends. Our success has us leading the pack amongst our competitors with our ability to anticipate change<br>and innovation.</p>
+
+        <div class="skill">
+          <div class="skill-head"><span>SEO Analysis</span><span class="skill-val">0%</span></div>
+          <div class="progress" role="progressbar" aria-label="SEO Analysis" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" data-value="90"></div></div>
+        </div>
+        <div class="skill">
+          <div class="skill-head"><span>SEO Audit</span><span class="skill-val">0%</span></div>
+          <div class="progress" role="progressbar" aria-label="SEO Audit" aria-valuenow="79" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" data-value="79"></div></div>
+        </div>
+        <div class="skill">
+          <div class="skill-head"><span>Optimization</span><span class="skill-val">0%</span></div>
+          <div class="progress" role="progressbar" aria-label="Optimization" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" data-value="95"></div></div>
+        </div>
+        <a href="#" class="btn btn-outline-violet mt-4">Discover more</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COUNTERS ============ -->
+<section class="stats">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 position-relative">
+        <img class="stats-blob reveal" data-anim="fadeInLeft" src="assets/img/home10_ellipse.png" alt="">
+        <div class="row g-4 counters">
+          <div class="col-6">
+            <div class="counter-card"><div class="counter grad-text"><span data-count="320">0</span>m</div><p>Digital global audience reach</p></div>
+            <div class="counter-card"><div class="counter grad-text"><span data-count="1350">0</span></div><p>Content pieces produced everyday</p></div>
+          </div>
+          <div class="col-6">
+            <div class="counter-card"><div class="counter grad-text"><span data-count="89">0</span>%</div><p>Of the audience is under 34 years old</p></div>
+            <div class="counter-card"><div class="counter grad-text"><span data-count="94">0</span>%</div><p>Employee<br>worldwide</p></div>
+          </div>
+        </div>
+        <img class="deco cross" style="top:4%;left:-10%" src="assets/img/home_06_icon_23.png" alt="">
+        <img class="deco plus" style="top:14%;left:-12%" src="assets/img/home_06_icon_22.png" alt="">
+      </div>
+      <div class="col-lg-6 position-relative">
+        <img class="w-100 girl-phone reveal" data-anim="fadeInRight" src="assets/img/girl-with_phone.jpg" alt="Woman using her phone">
+        <img class="deco ring" style="top:4%;right:-4%" src="assets/img/circle.png" alt="">
+        <img class="deco tri" style="top:52%;right:-14%" src="assets/img/triangle_orange.png" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CASE STUDIES (carousel) ============ -->
+<section class="cases">
+  <div class="container text-center">
+    <div class="subtitle reveal" data-anim="slideUp">featured Projects</div>
+    <h2 class="section-title reveal mb-5" data-anim="slideUp">Our Case Studies</h2>
+  </div>
+  <div class="case-slider" id="caseSlider">
+    <div class="case-track">
+      <article class="case-item"><a href="#" class="case-card"><img src="assets/img/flowy-dark-haired-woman-1200x870.jpg" alt=""><span class="case-more">View More</span><span class="case-info"><span class="case-cat">Marketing</span><span class="case-title">Online Media Management</span></span></a></article>
+      <article class="case-item"><a href="#" class="case-card"><img src="assets/img/portfolio_img_04-1200x870.jpg" alt=""><span class="case-more">View More</span><span class="case-info"><span class="case-cat">SEO</span><span class="case-title">Mannix Marketing</span></span></a></article>
+      <article class="case-item"><a href="#" class="case-card"><img src="assets/img/portfolio_img_02-1200x870.jpg" alt=""><span class="case-more">View More</span><span class="case-info"><span class="case-cat">SEO</span><span class="case-title">Mannix Marketing</span></span></a></article>
+      <article class="case-item"><a href="#" class="case-card"><img src="assets/img/portfolio_img_01_new-1200x870.jpg" alt=""><span class="case-more">View More</span><span class="case-info"><span class="case-cat">Marketing</span><span class="case-title">Online Media Management</span></span></a></article>
+    </div>
+    <div class="slider-dots" role="tablist" aria-label="Case studies"></div>
+  </div>
+</section>
+
+<!-- ============ WHAT WE OFFER ============ -->
+<section class="offer position-relative">
+  <img class="offer-blob" src="assets/img/home10_ellipse2.png" alt="" aria-hidden="true">
+  <div class="container offer-container position-relative">
+    <div class="text-center">
+      <div class="subtitle reveal" data-anim="slideUp">Why Choose Us</div>
+      <h2 class="section-title reveal mb-5" data-anim="slideUp">What We Offer</h2>
+    </div>
+    <img class="deco tri" style="top:-6%;left:54%" src="assets/img/triangle_blue.png" alt="">
+    <img class="deco plus" style="top:18%;right:-4%" src="assets/img/home_06_icon_22.png" alt="">
+    <img class="deco cross" style="top:24%;right:-8%" src="assets/img/home_06_icon_23.png" alt="">
+    <div class="row g-4 services">
+      <div class="col-md-4">
+        <a href="#" class="service-card"><span class="sc-icon"><img src="assets/img/home10_service1.png" alt=""><img class="active" src="assets/img/home10_service1-active.png" alt=""></span><h3>SEO</h3><p>Maecenas elementum sapien in metus placerat finibus. Lorem ipsum dolor sit amet, vix an.</p></a>
+        <a href="#" class="service-card"><span class="sc-icon"><img src="assets/img/home10_service4.png" alt=""><img class="active" src="assets/img/home10_service4-active.png" alt=""></span><h3>CMS</h3><p>Maecenas elementum sapien in metus placerat finibus. Lorem ipsum dolor sit amet, vix an.</p></a>
+      </div>
+      <div class="col-md-4 services-offset">
+        <a href="#" class="service-card stacked"><span class="sc-icon"><img src="assets/img/home10_service2.png" alt=""><img class="active" src="assets/img/home10_service2-active.png" alt=""></span><h3>Development</h3><p>Maecenas elementum sapien in metus placerat finibus. Lorem ipsum dolor sit amet, vix an.</p></a>
+        <a href="#" class="service-card stacked"><span class="sc-icon"><img src="assets/img/home10_service5.png" alt=""><img class="active" src="assets/img/home10_service5-active.png" alt=""></span><h3>Maintenance</h3><p>Maecenas elementum sapien in metus placerat finibus. Lorem ipsum dolor sit amet, vix an.</p></a>
+      </div>
+      <div class="col-md-4 services-offset">
+        <a href="#" class="service-card stacked"><span class="sc-icon"><img src="assets/img/home10_service3.png" alt=""><img class="active" src="assets/img/home10_service3-active.png" alt=""></span><h3>Web Design</h3><p>Maecenas elementum sapien in metus placerat finibus. Lorem ipsum dolor sit amet, vix an.</p></a>
+        <a href="#" class="service-card stacked"><span class="sc-icon"><img src="assets/img/home10_service6.png" alt=""><img class="active" src="assets/img/home10_service6-active.png" alt=""></span><h3>Hosting</h3><p>Maecenas elementum sapien in metus placerat finibus. Lorem ipsum dolor sit amet, vix an.</p></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FREE SEO ANALYSIS ============ -->
+<section class="seo-form">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6"><img class="seo-img reveal" data-anim="fadeInLeft" src="assets/img/home10_img5.jpg" alt="Team at work"></div>
+      <div class="col-lg-6">
+        <h2 class="section-title">Get Free SEO Analysis?</h2>
+        <p class="seo-lead">Ne summo dictas pertinacia nam. Illum cetero vocent ei vim, case regione signiferumque vim te.</p>
+        <form class="row g-3 contact-form needs-validation" novalidate>
+          <div class="col-sm-6"><input type="text" class="form-control" placeholder="Your Name*" required aria-label="Your name"></div>
+          <div class="col-sm-6"><input type="email" class="form-control" placeholder="Email*" required aria-label="Email"></div>
+          <div class="col-sm-6"><input type="tel" class="form-control" placeholder="Phone" aria-label="Phone"></div>
+          <div class="col-sm-6"><input type="url" class="form-control" placeholder="Website*" required aria-label="Website"></div>
+          <div class="col-12"><textarea class="form-control" rows="4" placeholder="Message" aria-label="Message"></textarea></div>
+          <div class="col-12 pt-3"><button class="btn btn-orange" type="submit">Send message</button></div>
+          <div class="col-12 form-ok d-none">Thank you for your message. It has been sent.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BLOG ============ -->
+<section class="blog">
+  <div class="container text-center">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="subtitle reveal" data-anim="slideUp">Blog</div>
+        <h2 class="section-title reveal" data-anim="slideUp">Latest News</h2>
+        <p class="blog-lead">Ad nec unum copiosae. Sea ex everti labores, ad option iuvaret qui. Id quo esse nusquam. Eam iriure diceret oporteat.</p>
+      </div>
+    </div>
+  </div>
+  <div class="container position-relative reveal" data-anim="fadeIn">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <article class="post-card">
+          <div class="post-bg" style="background-image:url(assets/img/blog_img_01.jpg)"></div>
+          <div class="post-body">
+            <div class="post-date">August 2, 2025</div>
+            <h3 class="post-title"><a href="#">How to Increase Your ROI Through scientific SEM?</a></h3>
+          </div>
+          <div class="post-foot">
+            <a href="#" class="post-more">Read More</a>
+            <div class="post-share"><button type="button" aria-label="Share"><i class="bi bi-share-fill"></i></button><span class="share-links"><a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a><a href="#" aria-label="X"><i class="bi bi-twitter-x"></i></a><a href="#" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a></span></div>
+          </div>
+        </article>
+      </div>
+      <div class="col-md-4">
+        <article class="post-card">
+          <div class="post-bg" style="background-image:url(assets/img/blog_post_02.jpg)"></div>
+          <div class="post-body">
+            <div class="post-date">August 1, 2025</div>
+            <h3 class="post-title"><a href="#">Simple Ways To Optimize Your Website For SEO</a></h3>
+          </div>
+          <div class="post-foot">
+            <a href="#" class="post-more">Read More</a>
+            <div class="post-share"><button type="button" aria-label="Share"><i class="bi bi-share-fill"></i></button><span class="share-links"><a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a><a href="#" aria-label="X"><i class="bi bi-twitter-x"></i></a><a href="#" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a></span></div>
+          </div>
+        </article>
+      </div>
+      <div class="col-md-4">
+        <article class="post-card">
+          <div class="post-bg" style="background-image:url(assets/img/home5_blog_img.jpg)"></div>
+          <div class="post-body">
+            <div class="post-date">August 1, 2025</div>
+            <h3 class="post-title"><a href="#">The Basics of Blogging Search Optimization</a></h3>
+          </div>
+          <div class="post-foot">
+            <a href="#" class="post-more">Read More</a>
+            <div class="post-share"><button type="button" aria-label="Share"><i class="bi bi-share-fill"></i></button><span class="share-links"><a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a><a href="#" aria-label="X"><i class="bi bi-twitter-x"></i></a><a href="#" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a></span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+    <img class="deco cross" style="top:-8%;left:-4%" src="assets/img/home_06_icon_23.png" alt="">
+    <img class="deco tri" style="bottom:-12%;left:-8%" src="assets/img/triangle_blue.png" alt="">
+    <img class="deco tri" style="top:10%;right:-8%" src="assets/img/triangle_orange.png" alt="">
+    <img class="deco ring" style="bottom:-16%;right:4%" src="assets/img/circle.png" alt="">
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta text-center">
+  <div class="container">
+    <h2 class="cta-title grad-text">Got New Project?</h2>
+    <div class="cta-divider"></div>
+    <p class="cta-text">Call us for fast support to this number.</p>
+    <a class="cta-phone" href="tel:8002563123">800 2563 123</a>
+    <div><a href="#contacts" class="btn btn-gradient btn-cta">Send message</a></div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="testimonials">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <div class="subtitle reveal" data-anim="slideUp">Testimonials</div>
+        <h2 class="section-title reveal" data-anim="slideUp">What Our Clients Say</h2>
+        <p class="testi-lead">Ewebot stays ahead of the curve with digital marketing trends.</p>
+        <img class="testi-quote reveal" data-anim="fadeInUp" src="assets/img/home10_quote.png" alt="">
+      </div>
+      <div class="col-lg-8">
+        <div id="testiCarousel" class="carousel slide testi-carousel" data-bs-ride="carousel" data-bs-interval="5000">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <figure class="testi-card">
+                <i class="bi bi-quote testi-mark" aria-hidden="true"></i>
+                <blockquote>Design is a way of life, a point of view. It involves the whole complex of visual commun ications: talen.t, creative ability manual skill.</blockquote>
+                <figcaption><img src="assets/img/home10_avatar-148x148.jpg" alt=""><strong>Denis Robinson</strong><span>Customer</span></figcaption>
+              </figure>
+            </div>
+            <div class="carousel-item">
+              <figure class="testi-card">
+                <i class="bi bi-quote testi-mark" aria-hidden="true"></i>
+                <blockquote>Design is a way of life, a point of view. It involves the whole complex of visual commun ications: talent, creative ability and technical knowledge.</blockquote>
+                <figcaption><img src="assets/img/testimonials_09_1-148x148.jpg" alt=""><strong>Silviia Garden</strong><span>Customer</span></figcaption>
+              </figure>
+            </div>
+            <div class="carousel-item">
+              <figure class="testi-card">
+                <i class="bi bi-quote testi-mark" aria-hidden="true"></i>
+                <blockquote>Design is a way of life, a point of view. It involves the whole complex of visual commun ications: talent, creative ability and technical knowledge.</blockquote>
+                <figcaption><img src="assets/img/home6_img_3-148x148.png" alt=""><strong>Tommy Dents</strong><span>Customer</span></figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="carousel-indicators pill-dots">
+            <button type="button" data-bs-target="#testiCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Testimonial 1"></button>
+            <button type="button" data-bs-target="#testiCarousel" data-bs-slide-to="1" aria-label="Testimonial 2"></button>
+            <button type="button" data-bs-target="#testiCarousel" data-bs-slide-to="2" aria-label="Testimonial 3"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer" id="contacts">
+  <div class="container footer-container">
+    <div class="row g-4 footer-contacts">
+      <div class="col-md-6 d-flex gap-3">
+        <i class="bi bi-phone-vibrate fc-icon"></i>
+        <div><a href="tel:88002534236" class="fc-strong">8 800 2534 236</a><a href="mailto:email@yoursite.com" class="d-block">email@yoursite.com</a></div>
+      </div>
+      <div class="col-md-6 d-flex gap-3 justify-content-md-end">
+        <i class="bi bi-geo-alt fc-icon"></i>
+        <div>27 Division St, New York, NY<br>10002, United States</div>
+      </div>
+    </div>
+
+    <form class="newsletter" onsubmit="this.querySelector('.nl-ok).classList.remove('d-none);return false;">
+      <input type="email" class="form-control" placeholder="Email Address" required aria-label="Email address">
+      <button class="btn btn-violet w-100" type="submit">Sign up</button>
+      <div class="form-check d-flex justify-content-center gap-2">
+        <input class="form-check-input" type="checkbox" id="nlAgree" required>
+        <label class="form-check-label" for="nlAgree">I agree to receive your newsletters and accept the data privacy statement.</label>
+      </div>
+      <div class="nl-ok d-none text-center">Thanks for subscribing!</div>
+    </form>
+
+    <div class="row footer-cols g-4">
+      <div class="col-6 col-lg-3">
+        <h4>About</h4>
+        <p class="about-text">We focus on the needs of small to middle market businesses to improve and grow their return.</p>
+        <div class="socials">
+          <a href="#" aria-label="X"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" aria-label="Facebook" class="fb"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="Pinterest" class="pi"><i class="bi bi-pinterest"></i></a>
+          <a href="#" aria-label="LinkedIn" class="li"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3"><h4>Services</h4><ul><li><a href="#">SEO Marketing</a></li><li><a href="#">SEO Services</a></li><li><a href="#">Pay Per Click</a></li><li><a href="#">Social Media</a></li><li><a href="#">SEO Audit</a></li></ul></div>
+      <div class="col-6 col-lg-3"><h4>Community</h4><ul><li><a href="#">Our Product</a></li><li><a href="#">Documentation</a></li><li><a href="#">Our Services</a></li><li><a href="#">Company</a></li><li><a href="#">What We Do?</a></li></ul></div>
+      <div class="col-6 col-lg-3"><h4>Quick Links</h4><ul><li><a href="#">Home</a></li><li><a href="#">About Us</a></li><li><a href="#">Main Services</a></li><li><a href="#">Pricing</a></li><li><a href="#">Our Cases</a></li></ul></div>
+    </div>
+    <div class="copyright">© <span id="year">2026</span> – Ewebot. All Rights Reserved.</div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="bi bi-chevron-up"></i></button>
+
+<!-- Side info panel (offcanvas) -->
+<div class="offcanvas offcanvas-end side-panel" tabindex="-1" id="sidePanel" aria-labelledby="sidePanelLabel">
+  <div class="offcanvas-header">
+    <img id="sidePanelLabel" src="assets/img/logo_retinablack.png" alt="ewebot" width="130">
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <p class="sp-text">Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lecto rum eleifend option congue nihil doming. Espa notrle neumurit.</p>
+    <h5>Contacts</h5>
+    <ul class="list-unstyled sp-contacts">
+      <li><i class="bi bi-telephone-fill"></i> 8 800 2563 123</li>
+      <li><i class="bi bi-envelope-fill"></i> emil@yoursite.com</li>
+      <li><i class="bi bi-geo-alt-fill"></i> 27 Division St, New York, NY 10002, United States</li>
+    </ul>
+    <form class="sp-newsletter" onsubmit="return false;">
+      <div class="input-group">
+        <input type="email" class="form-control" placeholder="Email Address" aria-label="Email address">
+        <button class="btn btn-violet" type="submit">Sign up</button>
+      </div>
+      <div class="form-check mt-3">
+        <input class="form-check-input" type="checkbox" id="spAgree">
+        <label class="form-check-label" for="spAgree">I agree to receive your newsletters and accept the data privacy statement.</label>
+      </div>
+    </form>
+    <div class="sp-social"><a href="#" aria-label="X"><i class="bi bi-twitter-x"></i></a><a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a><a href="#" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a><a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a></div>
+  </div>
+</div>
+
+<!-- Search overlay (modal) -->
+<div class="modal fade search-modal" id="searchModal" tabindex="-1" aria-label="Search" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <button type="button" class="btn-close btn-close-white search-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <form class="search-form" role="search" onsubmit="return false;">
+        <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+        <button type="submit" aria-label="Submit search"><i class="bi bi-search"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
