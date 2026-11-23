@@ -81,6 +81,34 @@ p { line-height: 1.5; }
 /* invisible bridge so the menu doesn't close while the pointer crosses the gap */
 .main-menu .dropdown-menu::before { content: ""; position: absolute; left: 0; right: 0; top: -34px; height: 34px; }
 
+/* ---------- Pages menu (New Style / Other Inner Pages) ---------- */
+.main-menu .pages-menu { width: 580px; left: -24px; top: 100%; margin-top: 24px; padding: 0; border-radius: 12px; box-shadow: 0 0 20px rgba(0, 0, 0, .1); background: #fff; overflow: visible; }
+.main-menu .dropdown-menu.pages-menu.show { display: flex; }
+@media (min-width: 1200px) { .main-menu .dropdown:hover > .dropdown-menu.pages-menu { display: flex; } }
+.pages-menu::after { content: ""; position: absolute; top: -8px; left: 34px; border: 8px solid transparent; border-top: 0; border-bottom-color: #4463c7; }
+.pm-new { position: relative; flex: 0 0 50%; padding: 36px 35px; border-radius: 12px 0 0 12px; overflow: hidden; background: #4463c7 url("../img/menu_pages_bg.webp") top right / cover no-repeat; }
+.pm-other { flex: 0 0 50%; padding: 36px 35px 35px 55px; }
+.pm-head { font-family: "Roboto", sans-serif; font-size: 14px; font-weight: 500; line-height: 19px; text-transform: uppercase; color: var(--dark); margin-bottom: 20px; }
+.pm-new .pm-head { color: #fff; display: flex; align-items: center; gap: 9px; margin-bottom: 21px; }
+.pm-badge { background: #fff; color: #fc1370; font-family: var(--font-body); font-size: 12px; font-weight: 500; line-height: 19px; text-transform: none; padding: 0 6px; border-radius: 9px; }
+.pm-list, .pm-nav, .pm-sub { list-style: none; margin: 0; padding: 0; }
+.pm-list { position: relative; z-index: 2; }
+.pm-list li { padding-bottom: 9px; }
+.pm-list a { font-size: 14px; color: #b7e9ff; transition: color .3s, padding .3s; }
+.pm-list a:hover { color: #fff; padding-left: 4px; }
+.pm-vertical { position: absolute; z-index: 1; right: -88px; top: 50%; transform: translateY(-50%) rotate(-90deg); font-family: "Inter", sans-serif; font-size: 61px; font-weight: 700; line-height: 1; letter-spacing: -3px; white-space: nowrap; pointer-events: none;
+  background: linear-gradient(90deg, rgba(32, 137, 255, .09), rgba(255, 135, 245, .09)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.pm-nav > li { position: relative; padding: 4px 0; }
+.pm-nav a { font-size: 14px; line-height: 21px; color: var(--text); transition: color .3s; }
+.pm-nav li:hover > a { color: #0a2a43; }
+.pm-nav .has-sub > a::after { content: "\F282"; font-family: "bootstrap-icons"; font-size: 10px; margin-left: 9px; vertical-align: middle; display: inline-block; transition: transform .3s; }
+.pm-nav .has-sub:hover > a::after { transform: rotate(-90deg); }
+.pm-sub { position: absolute; left: calc(100% - 30px); top: -10px; width: 200px; background: #fff; border-radius: 5px; box-shadow: 0 10px 30px rgba(0, 0, 0, .12); padding: 12px 22px; opacity: 0; visibility: hidden; transform: translateX(10px); transition: .25s; z-index: 5; }
+.pm-sub li { padding: 4px 0; }
+.pm-nav .has-sub:hover > .pm-sub, .pm-nav .has-sub:focus-within > .pm-sub { opacity: 1; visibility: visible; transform: none; }
+.mm-group { display: block; padding: 12px 18px 4px; font-family: "Roboto", sans-serif; font-size: 12px; font-weight: 500; text-transform: uppercase; color: var(--dark); }
+.mm-group em { font-style: normal; background: #fc1370; color: #fff; border-radius: 9px; padding: 0 6px; margin-left: 4px; text-transform: none; }
+
 /* ---------- Mega menu (Key Features) ---------- */
 .main-menu .mega-menu { left: 35px; right: 35px; top: 100%; margin-top: 0; padding: 0; overflow: visible; background: #f5f8fa; border-radius: 12px; box-shadow: 0 0 20px rgba(0, 0, 0, .1); }
 .mega-menu > .mega-canvas { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 12px; z-index: 1; pointer-events: none; }

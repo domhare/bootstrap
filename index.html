@@ -15,7 +15,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Nunito:wght@400;600;700;800&family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Nunito:wght@400;600;700;800&family=Rubik:wght@300;400;500&family=Roboto:wght@500&family=Inter:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
@@ -47,13 +47,42 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">About Us</a></li>
-              <li><a class="dropdown-item" href="#">Our Services</a></li>
-              <li><a class="dropdown-item" href="#">Our Team</a></li>
-              <li><a class="dropdown-item" href="#">Pricing</a></li>
-              <li><a class="dropdown-item" href="#">FAQ</a></li>
-            </ul>
+            <div class="dropdown-menu pages-menu">
+              <div class="pm-new">
+                <div class="pm-head"><span>New Style Pages</span><span class="pm-badge">New</span></div>
+                <ul class="pm-list">
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">SMM Services</a></li>
+                  <li><a href="#">Marketing Services</a></li>
+                  <li><a href="#">PPC Services</a></li>
+                  <li><a href="#">SEO Services</a></li>
+                  <li><a href="#">Our Agency Team</a></li>
+                  <li><a href="#">Single Team Page</a></li>
+                  <li><a href="#">Blog New</a></li>
+                  <li><a href="#">Blog Single Page</a></li>
+                </ul>
+                <span class="pm-vertical" aria-hidden="true">NEWNEWNEW</span>
+              </div>
+              <div class="pm-other">
+                <div class="pm-head">Other Inner Pages</div>
+                <ul class="pm-nav">
+                  <li><a href="#">About Us</a></li>
+                  <li class="has-sub"><a href="#">Services</a>
+                    <ul class="pm-sub"><li><a href="#">Main Services</a></li><li><a href="#">PPC Services</a></li><li><a href="#">SEO Services</a></li><li><a href="#">SMM Services</a></li></ul></li>
+                  <li class="has-sub"><a href="#">Our Case Studies</a>
+                    <ul class="pm-sub"><li><a href="#">Case Studies Grid</a></li><li><a href="#">Case Studies Grid II</a></li><li><a href="#">Case Studies Packery</a></li><li><a href="#">Case Studies with Ajax</a></li><li><a href="#">Single Case</a></li></ul></li>
+                  <li class="has-sub"><a href="#">Our Team</a>
+                    <ul class="pm-sub"><li><a href="#">Team Members</a></li><li><a href="#">Single Team</a></li></ul></li>
+                  <li class="has-sub"><a href="#">FAQ</a>
+                    <ul class="pm-sub"><li><a href="#">FAQ Variant I</a></li><li><a href="#">FAQ Variant II</a></li></ul></li>
+                  <li><a href="#">Pricing Plans</a></li>
+                  <li><a href="#">Photo Gallery</a></li>
+                  <li><a href="#">Coming Soon</a></li>
+                  <li><a href="#">Typography</a></li>
+                  <li><a href="#">Page 404</a></li>
+                </ul>
+              </div>
+            </div>
           </li>
           <li class="nav-item dropdown position-static">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Mega Menu</a>
@@ -130,7 +159,7 @@
         <li><a class="mm-link active" data-bs-toggle="collapse" href="#mm-home" role="button">Home <i class="bi bi-chevron-right"></i></a>
           <div class="collapse mm-sub" id="mm-home"><a href="#">Home 1</a><a href="#">Home 2</a><a href="#">Home 3</a><a href="#" class="active">Home 10</a></div></li>
         <li><a class="mm-link" data-bs-toggle="collapse" href="#mm-pages" role="button">Pages <i class="bi bi-chevron-right"></i></a>
-          <div class="collapse mm-sub" id="mm-pages"><a href="#">About Us</a><a href="#">Our Services</a><a href="#">Our Team</a><a href="#">Pricing</a></div></li>
+          <div class="collapse mm-sub" id="mm-pages"><span class="mm-group">New Style Pages <em>New</em></span><a href="#">About Us</a><a href="#">SMM Services</a><a href="#">Marketing Services</a><a href="#">PPC Services</a><a href="#">SEO Services</a><a href="#">Our Agency Team</a><a href="#">Single Team Page</a><a href="#">Blog New</a><a href="#">Blog Single Page</a><span class="mm-group">Other Inner Pages</span><a href="#">About Us</a><a href="#">Services</a><a href="#">Our Case Studies</a><a href="#">Our Team</a><a href="#">FAQ</a><a href="#">Pricing Plans</a><a href="#">Photo Gallery</a><a href="#">Coming Soon</a><a href="#">Typography</a><a href="#">Page 404</a></div></li>
         <li><a class="mm-link" data-bs-toggle="collapse" href="#mm-mega" role="button">Mega Menu <i class="bi bi-chevron-right"></i></a>
           <div class="collapse mm-sub" id="mm-mega"><a href="#">Top 30 Power Elite Author</a><a href="#">Elementor Visual Page Builder</a><a href="#">WPDaddy Builder Pro</a><a href="#">Smart Demo Import</a><a href="#">WooCommerce Online Shop</a><a href="#">WPDA Mega Menu</a><a href="#">Auto-Update System</a><a href="#">Multi-Language Support</a><a href="#">Advanced Theme Options Panel</a><a href="#">Custom Elementor Widgets</a><a href="#">Fully Responsive Retina Ready</a><a href="#">Optimized For Better Performance</a></div></li>
         <li><a class="mm-link" data-bs-toggle="collapse" href="#mm-blog" role="button">Blog <i class="bi bi-chevron-right"></i></a>
